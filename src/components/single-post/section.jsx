@@ -1,23 +1,23 @@
+'use client'
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { renderHTML } from '@/utils/renderHtml';
 
-function Post() {
+function Post({ slug }) {
     const [singlePost, setSinglePost] = useState(null);
-    const { postId } = useParams();
 
     useEffect(() => {
         axios
-            .get(`https://www.googleapis.com/blogger/v3/blogs/8843549498875885847/posts/${postId}?key=AIzaSyDKlUF9eOK_ybiaNuvqMYBSxCyT-UCSSwI`)
+            .get(`https://www.googleapis.com/blogger/v3/blogs/8843549498875885847/posts/${slug}?key=AIzaSyDKlUF9eOK_ybiaNuvqMYBSxCyT-UCSSwI`)
             .then((res) => {
                 setSinglePost(res.data);
             })
             .catch((error) => console.error(error));
-    }, [postId]);
+    }, [slug]);
 
     return (
         <div>
+            <h1>este post é um deus</h1>
             {singlePost ? (
                 <div>
                     <h2>{singlePost.title}</h2>

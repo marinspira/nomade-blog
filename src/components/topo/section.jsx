@@ -1,26 +1,36 @@
-'use client'
 import { PostsContext } from "@/context/allPosts";
-import { useContext } from "react";
+import styles from './section.module.css'
+import { useContext, useEffect, useState } from "react";
+import { extractFirstImage } from "@/utils/extractImg";
 
-function Topo() {
+function Topo({ params }) {
+    const { posts } = useContext(PostsContext);
+    
+    const [firstImage, setFirstImage] = useState("");
 
-  const { posts } = useContext(PostsContext)
+    useEffect(() => {
+        if (posts.length > 0) {
+            const image = extractFirstImage(posts[0].content);
+            setFirstImage(image || "");
+        }
+    }, [posts]);
 
     return (
-        <>
-            <div>
+        <div className={styles.row}>
+            <div className={styles.column}>
+                <img className={styles.firstImage} src={firstImage} alt=""/>
             </div>
-            <div>
-                <img src="" alt=""/>
+            <div className={styles.column}>
                 {posts.map((post) => (
-                    <a href={`/blog/${post.id}`} key={post.id}>
+                    <a href={`/post/${post.id}`} key={post.id}>
                     <label>{post.labels}</label>
+                    <img src={firstImage} alt={post.title}/>
                     <h2>{post.title}</h2>
                     </a>
                 ))}
             </div>
-        </>
-    )
+        </div>
+    );
 }
 
-export default Topo
+export default Topo;
