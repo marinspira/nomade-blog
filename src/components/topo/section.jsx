@@ -10,8 +10,8 @@ function Topo({ params }) {
 
     useEffect(() => {
         if (posts.length > 0) {
-            const image = extractFirstImage(posts[0].content);
-            setFirstImage(image || "");
+            const { imageUrl } = extractFirstImage(posts[0].content);
+            setFirstImage(imageUrl || "");
         }
     }, [posts]);
 

@@ -2,8 +2,11 @@ import Post from "@/components/single-post/section";
 import axios from "axios";
 
 export default function Page({ params }) {
+
+  const id = params.slug
+
   return (
-    <Post id={params}/>
+    <Post id={id}/>
   )
 }
 
@@ -13,8 +16,6 @@ export async function generateStaticParams() {
   );
 
   const posts = response.data.items
-
-  console.log(posts[0].id);
   
   return posts.map((post) => ({
     slug: post.id,
