@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    padding: 10px 0;
+    background-color: #fff;
+    width: 100vw;
+    position: fixed;
+    z-index: 999;
+    min-height: 90px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header div {
+    width: 1400px;
+}
+
+.header span {
+    font-weight: 600;
+    font-size: 20px;
+}

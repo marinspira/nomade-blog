@@ -2,8 +2,10 @@ import styles from './section.module.css'
 
 function Header() {
     return (
-        <header>
-            <span>Blog de viagem</span>
+        <header className={styles.header}>
+            <div>
+                <span>Blog de viagem</span>
+            </div>
         </header>
     )
 }

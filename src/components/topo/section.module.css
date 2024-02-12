@@ -1,6 +1,13 @@
-.column {
-    width: 50%;
+.column{
+    width: 45%;
     position: relative;
+}
+
+.column2 {
+    width: 55%;
+    display: flex;
+    position: relative;
+    align-items: flex-end;
 }
 
 .row {
@@ -14,4 +21,28 @@
     object-fit: cover;
     height: 100vh;
     width: 100%;
+}
+
+.map {
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+}
+
+.map img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.posts {
+    height: 300px;
+    display: flex;
+    gap: 30px;
+    margin: 0px 0px 120px 120px;
+}
+
+.posts img {
+    height: 250px;
+    width: 200px;
 }
