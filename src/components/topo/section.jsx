@@ -41,7 +41,7 @@ function Topo({ params }) {
                 </div>
                 <div className={styles.posts}>
                     {posts.map((post, index) => (
-                        <div className={styles.post}>
+                        <div key={index} className={styles.post}>
                             <a href={`/post/${post.id}`} key={post.id}>
                                 <label>{post.labels}</label>
                                 <h2 className={styles.title}>{post.title}</h2>
