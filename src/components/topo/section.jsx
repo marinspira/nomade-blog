@@ -8,30 +8,8 @@ function Topo({ params }) {
     const { posts } = useContext(PostsContext);
     
     const [firstImages, setFirstImages] = useState([]);
-
-    const [dragging, setDragging] = useState(false);
-
-    const handleDragStart = (e) => {
-        e.preventDefault();
-        setDragging(true);
-    };
-
-    const handleDragEnd = () => {
-        setDragging(false);
-    };
-
-    const handleDragOver = (e) => {
-        e.preventDefault();
-    };
-
-    const handleDrop = (e) => {
-        e.preventDefault();
-        setDragging(false);
-        const dropX = e.clientX;
-        const dropY = e.clientY;
-        // Aqui você pode adicionar a lógica para manipular a posição da imagem
-    };
-
+    const [firstPost, setFirstPost] = useState({})
+    
     useEffect(() => {
         if (posts.length > 0) {
             const images = posts.map(post => {
@@ -39,23 +17,26 @@ function Topo({ params }) {
                 return imageUrl || "";
             });
             setFirstImages(images);
+
+            const texto = posts[0].title;
+            const id = posts[0].id
+            const autor = ''
+            setFirstPost({ texto, id, autor })
         }
     }, [posts]);
 
     return (
         <div className={styles.row}>
-            <div className={styles.column}>
+            <a className={styles.column} href={`/post/${firstPost.id}`}>
+                <div className={styles.content}>
+                    <span>Último post</span>
+                    <h1>{firstPost.texto}</h1>
+                </div>
+                <div className={styles.gradientOverlay}></div>
                 <img className={styles.firstImage} src={firstImages[0]} alt=""/>
-                <h1>{posts.title}</h1>
-            </div>
+            </a>
             <div className={styles.column2}>
-                <div className={styles.map}
-                    draggable
-                    onDragStart={handleDragStart}
-                    onDragEnd={handleDragEnd}
-                    onDragOver={handleDragOver}
-                    onDrop={handleDrop}
-                >
+                <div className={styles.map}>
                     <img src={map.src} alt="map" />
                 </div>
                 <div className={styles.posts}>
@@ -63,8 +44,9 @@ function Topo({ params }) {
                         <div className={styles.post}>
                             <a href={`/post/${post.id}`} key={post.id}>
                                 <label>{post.labels}</label>
+                                <h2 className={styles.title}>{post.title}</h2>
+                                <div className={styles.gradientOverlay}></div>
                                 <img src={firstImages[index]} alt={post.title}/>
-                                <h2>{post.title}</h2>
                             </a>
                         </div>
                     ))}
