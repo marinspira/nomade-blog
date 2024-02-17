@@ -1,17 +1,14 @@
 /**
  * @type {import('next').NextConfig}
  */
-const nextConfig = {
-    output: 'export',
-   
-    // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
-    // trailingSlash: true,
-   
-    // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
-    // skipTrailingSlashRedirect: true,
-   
-    // Optional: Change the output directory `out` -> `dist`
-    // distDir: 'dist',
-  }
-   
-  module.exports = nextConfig
+
+const repo = process.env.NODE_ENV === 'production' ? '/nomade-blog' : ''
+
+const assetPrefix = `/${repo}/`
+const basePath = `/${repo}`
+
+module.exports = {
+  assetPrefix: assetPrefix,
+  basePath: basePath,
+  output: 'export',
+}
