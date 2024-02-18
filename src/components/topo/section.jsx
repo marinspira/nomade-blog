@@ -5,6 +5,7 @@ import { extractFirstImage } from "@/utils/extractImg";
 import map from '@/assets/map5.svg'
 import Link from "next/link";
 import formatDate from "@/utils/formatDate";
+import DragImage from "../drag-img/section";
 
 function Topo({ params }) {
     const { posts } = useContext(PostsContext);
@@ -56,7 +57,8 @@ function Topo({ params }) {
             </Link>
             <div className={styles.column2}>
                 <div className={styles.map}>
-                    <img src={map.src} alt="map" />
+                    {/**<img src={map.src} alt="map" />**/}
+                    <DragImage src={map.src}/>
                 </div>
                 <div className={styles.posts}>
                     {posts.map((post, index) => (
