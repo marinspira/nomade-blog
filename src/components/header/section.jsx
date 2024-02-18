@@ -1,10 +1,12 @@
 import styles from './section.module.css'
+import logo from '@/assets/logo5.png'
 
 function Header() {
     return (
         <header className={styles.header}>
             <div>
-                <span>Blog de viagem</span>
+                <img className={styles.logo} src={logo.src} alt='logo'/>
+                <span>blog de viagem</span>
             </div>
         </header>
     )
