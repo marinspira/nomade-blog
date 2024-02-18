@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { extractFirstImage } from "@/utils/extractImg";
 import map from '@/assets/map5.svg'
 import Link from "next/link";
+import formatDate from "@/utils/formatDate";
 
 function Topo({ params }) {
     const { posts } = useContext(PostsContext);
@@ -19,10 +20,14 @@ function Topo({ params }) {
             });
             setFirstImages(images);
 
+            console.log(posts)
+
             const texto = posts[0].title;
             const id = posts[0].id
-            const autor = ''
-            setFirstPost({ texto, id, autor })
+            const author = posts[0].author.displayName
+            const authorImg = posts[0].author.image.url
+            const date = formatDate(posts[0].published) 
+            setFirstPost({ texto, id, author, authorImg, date })
         }
     }, [posts]);
 
@@ -32,6 +37,19 @@ function Topo({ params }) {
                 <div className={styles.content}>
                     <span>Último post</span>
                     <h1>{firstPost.texto}</h1>
+                    <div className={styles.details}>
+                        <div className={styles.itens}>
+                            <div className={styles.author}>
+                                <img src={firstPost.authorImg} alt={firstPost.author}/>
+                                <p><span>Autor:</span><br/>{firstPost.author}</p>
+                            </div>
+                            <div className={styles.date}>
+                                <span>Postado:</span>
+                                <p>{firstPost.date}</p>
+                            </div>
+                        </div>
+                        <button>Ler post</button>
+                    </div>
                 </div>
                 <div className={styles.gradientOverlay}></div>
                 <img className={styles.firstImage} src={firstImages[0]} alt=""/>

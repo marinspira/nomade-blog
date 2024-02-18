@@ -2,6 +2,9 @@
     width: 50%;
     height: 100vh;
     position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 100px;
 }
 
 .firstImage {
@@ -17,9 +20,7 @@
 
 .content {
     z-index: 3;
-    position: relative;
-    left: 100px;
-    top: 75%;
+    width: 100%;
 }
 
 .gradientOverlay {
@@ -97,4 +98,65 @@
     bottom: 10px;
     color: #fff;
     left: 20px;
+}
+
+.details {
+    background-color: rgb(255 255 255 / 20%);
+    backdrop-filter: blur(10px);
+    padding: 30px 40px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+.details button {
+    cursor: pointer;
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 20px 25px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 3px;
+}
+
+.details button:hover {
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+    padding: 20px 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.details span {
+    text-transform: lowercase;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.itens {
+    display: flex;
+    gap: 80px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author img {
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
 }

@@ -1,9 +1,9 @@
 .header {
     display: flex;
     padding: 10px 0;
-    background-color: #fff;
     width: 100vw;
     position: fixed;
+    top: 50px;
     z-index: 999;
     min-height: 90px;
     align-items: center;
@@ -11,7 +11,12 @@
 }
 
 .header div {
-    width: 1400px;
+    width: 100%;
+    margin: 0 80px;
+    padding: 40px;
+    background-color: rgb(255 255 255 / 30%);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
 }
 
 .header span {

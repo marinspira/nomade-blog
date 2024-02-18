@@ -2,9 +2,9 @@
  * @type {import('next').NextConfig}
  */
 
-const repo = process.env.NODE_ENV === 'production' ? '/nomade-blog' : ''
+const repo = process.env.NODE_ENV === 'production' ? '/nomade-blog/' : ''
 
-const assetPrefix = `${repo}/`
+const assetPrefix = `${repo}`
 const basePath = `${repo}`
 
 module.exports = {
